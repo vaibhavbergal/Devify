@@ -15,6 +15,7 @@ const ProductCard = ({ products }) => {
               <img
                 src={item.image}
                 alt={item.title}
+                loading="lazy"
                 className="object-contain transition-all ease-in-out aspect-square mix-blend-multiply hover:scale-105"
               />
               <CardTitle className="mt-2 text-[10px] font-medium tracking-wide font-mooli capitalize text-orange-700">

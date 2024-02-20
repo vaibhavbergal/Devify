@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { login as authLogin } from "@/store/slices/authSlice";
 import authService from "@/appwrite/auth";
+import { toast } from "react-toastify";
 
 const LoginPage = ({ setProgress }) => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const LoginPage = ({ setProgress }) => {
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
+        toast.success("Logged in Successfully");
         navigate("/");
       }
     } catch (error) {

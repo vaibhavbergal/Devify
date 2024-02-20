@@ -7,6 +7,7 @@ import { login } from "@/store/slices/authSlice";
 import authService from "../appwrite/auth";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const RegisterPage = ({ setProgress }) => {
   const navigate = useNavigate();
@@ -21,6 +22,8 @@ const RegisterPage = ({ setProgress }) => {
       if (userData) {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(login(userData));
+        toast.success("Logged in Successfully");
+
         navigate("/");
       }
     } catch (error) {
