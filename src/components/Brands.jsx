@@ -34,20 +34,18 @@ function Brands() {
 
       <div className="py-6 mt-5 bg-green-400 md:mt-10">
         <div className="w-[85%] m-auto  flex flex-col items-center md:justify-center gap-5 md:flex-row">
-          <div className="flex md:w-1/2">
-            <h3>
-              Sign up for <span className="text-lg font-bold">newsletter</span>
-            </h3>
-            <div className="flex w-full">
-              <input
-                type="text"
-                placeholder="Enter your email"
-                className="w-full px-2 py-2 rounded-s-lg"
-              />
-              <button className="px-3 text-white bg-red-600 rounded-e-lg">
-                SUBSCRIBE
-              </button>
-            </div>
+          <h3>
+            Sign up for <span className="text-lg font-bold">newsletter</span>
+          </h3>
+          <div className="flex w-full">
+            <input
+              type="text"
+              placeholder="Enter your email"
+              className="w-full px-2 py-2 rounded-s-lg"
+            />
+            <button className="px-3 text-white bg-red-600 rounded-e-lg">
+              SUBSCRIBE
+            </button>
           </div>
           <div className="flex gap-3 text-xl ">
             <FaFacebookF className="cursor-pointer" />
