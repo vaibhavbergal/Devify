@@ -12,7 +12,7 @@ import { login, logout } from "@/store/slices/authSlice";
 import { ThreeDots } from "react-loader-spinner";
 
 function Cart({ setProgress }) {
-  const [quantity, setQuantity] = useState(1);
+  const [quantities, setQuantities] = useState({});
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -35,22 +35,22 @@ function Cart({ setProgress }) {
   }, []);
 
   const price = cart.reduce((acc, a) => {
-    return acc + a.price;
+    return acc + a.price * (quantities[a.id] || 1);
   }, 0);
 
   const discount = (price * 0.12).toFixed(2);
 
   const totalAmount = (price - discount).toFixed(2);
 
-  const onQuantityChange = (e) => {
-    const newQuantity = parseInt(e.target.value, 10);
+  // const onQuantityChange = (e, itemId) => {
+  //   const newQuantity = parseInt(e.target.value, 10);
 
-    if (!isNaN(newQuantity) && newQuantity >= 0) {
-      setQuantity(newQuantity);
-    } else {
-      setQuantity(1);
-    }
-  };
+  //   if (!isNaN(newQuantity) && newQuantity >= 0) {
+  //     setQuantities({ ...quantities, [itemId]: newQuantity });
+  //   } else {
+  //     setQuantities({ ...quantities, [itemId]: 1 });
+  //   }
+  // };
 
   return !loading ? (
     cart.length > 0 ? (
@@ -71,7 +71,7 @@ function Cart({ setProgress }) {
                   {cart.title}
                 </CardTitle>
                 <CardDescription className="mt-3 font-sans font-medium text-black">
-                  ₹{cart.price * 83}
+                  ₹{(cart.price * 83 * (quantities[cart.id] || 1)).toFixed(2)}
                 </CardDescription>
                 <div className="flex items-center justify-around w-full">
                   <CardDescription className="flex gap-2 mt-5 text-black ">
@@ -79,22 +79,32 @@ function Cart({ setProgress }) {
                       variant="outline"
                       size="icon"
                       className="text-base font-bold rounded-full"
-                      onClick={() => setQuantity(quantity - 1 || 1)}
+                      onClick={() =>
+                        setQuantities({
+                          ...quantities,
+                          [cart.id]: (quantities[cart.id] || 1) - 1 || 1,
+                        })
+                      }
                     >
                       -
                     </Button>
                     <Input
                       type="text"
                       placeholder="1"
-                      value={quantity}
-                      onChange={onQuantityChange}
+                      value={quantities[cart.id] || 1}
+                      onChange={(e) => onQuantityChange(e, cart.id)}
                       className="w-8 h-8 p-0 text-center"
                     />
                     <Button
                       variant="outline"
                       size="icon"
                       className="text-base font-bold rounded-full"
-                      onClick={() => setQuantity(quantity + 1)}
+                      onClick={() =>
+                        setQuantities({
+                          ...quantities,
+                          [cart.id]: (quantities[cart.id] || 1) + 1,
+                        })
+                      }
                     >
                       +
                     </Button>
@@ -123,18 +133,17 @@ function Cart({ setProgress }) {
             <div className="mt-3 font-normal text-black/80">
               <p className="flex justify-between ">
                 Price ({cart.length} items) :{" "}
-                <span> ₹ {(price * quantity * 83).toFixed(2)}</span>
+                <span> ₹ {(price * 83).toFixed(2)}</span>
               </p>
               <p className="flex justify-between mt-2 ">
                 discount(12%) :
                 <span className="text-amber-500">
-                  - ₹ {(discount * quantity * 83).toFixed(2)}
+                  - ₹ {(discount * 83).toFixed(2)}
                 </span>
               </p>
               <hr className="my-2" />
               <p className="flex justify-between font-semibold">
-                Total Amount :{" "}
-                <span>₹ {(totalAmount * quantity * 83).toFixed(2)}</span>
+                Total Amount : <span>₹ {(totalAmount * 83).toFixed(2)}</span>
               </p>
             </div>
             <Button
