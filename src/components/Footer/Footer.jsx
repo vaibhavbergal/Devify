@@ -57,6 +57,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <p className="py-3 text-sm text-center border-t border-black/30 font-mooli">
+          &copy; Copyright | Devify 2024
+        </p>
       </div>
     </>
   );
