@@ -13,7 +13,7 @@ function LogoutBtn() {
   };
   return (
     <button
-      className="px-6 py-2 duration-200 rounded-full inline-bock hover:bg-black hover:text-blue-500"
+      className="py-1 duration-200 rounded-full inline-bock hover:bg-black hover:text-blue-500"
       onClick={logoutHandler}
     >
       <MdLogout />

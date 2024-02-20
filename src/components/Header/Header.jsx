@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 import { FiX } from "react-icons/fi";
 import { HiMenuAlt1 } from "react-icons/hi";
 import LogoutBtn from "../LogoutBtn";
+import { RiAccountCircleFill } from "react-icons/ri";
 
 function Header() {
   const cart = useSelector((state) => state.cart);
@@ -44,11 +45,11 @@ function Header() {
           <Link to="/" className="text-2xl font-medium ">
             <span className="text-amber-400">Dev</span>ify
           </Link>
-          <ul className="flex gap-8">
+          <ul className="flex gap-2 md:gap-6">
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `py-4 hover:text-blue-500 ${
+                `py-4 hidden md:block hover:text-blue-500 ${
                   isActive
                     ? "scale-x-110 font-medium text-blue-500"
                     : "text-white"
@@ -61,18 +62,18 @@ function Header() {
               <NavLink
                 to="/login"
                 className={({ isActive }) =>
-                  `pt-4 hover:text-blue-500 ${
+                  `pt-3 hover:text-blue-500 ${
                     isActive
                       ? "scale-x-110 font-medium text-blue-500"
-                      : "text-white"
+                      : "text-white/80"
                   }`
                 }
               >
-                Login
+                <RiAccountCircleFill className="text-3xl" />
               </NavLink>
             ) : null}
             {authStatus && (
-              <li className="pt-2 text-2xl">
+              <li className="pt-2 text-3xl">
                 <LogoutBtn />
               </li>
             )}
