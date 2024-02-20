@@ -32,7 +32,7 @@ function Brands() {
         </div>
       </div> */}
 
-      <div className="py-6 mt-10 bg-green-400">
+      <div className="py-6 mt-5 bg-green-400 md:mt-10">
         <div className="w-[85%] m-auto  flex flex-col items-center md:justify-center gap-5 md:flex-row">
           <div className="flex md:w-1/2">
             <h3>

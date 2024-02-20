@@ -36,8 +36,8 @@ const RegisterPage = ({ setProgress }) => {
   }, []);
 
   return (
-    <div className="flex my-10 items-center justify-center w-full h-[80vh]">
-      <div className="flex w-full max-w-lg py-5 shadow-md md:max-w-2xl bg-rose-100 rounded-xl">
+    <div className="flex mt-5 items-center justify-center w-full h-[80vh]">
+      <div className="flex w-full max-w-md py-5 shadow-md md:max-w-2xl bg-rose-100 rounded-xl">
         <div className="flex items-center justify-center flex-1">
           <div className="flex flex-col gap-8 ">
             <h3 className="text-4xl font-semibold ">Sign up</h3>

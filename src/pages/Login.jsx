@@ -39,8 +39,8 @@ const LoginPage = ({ setProgress }) => {
 
   return (
     <>
-      <div className="flex items-center justify-center w-full h-[80vh]">
-        <Card className="flex w-full max-w-lg py-10 shadow-md md:max-w-2xl bg-rose-100 rounded-xl">
+      <div className="flex items-center justify-center w-full h-[70vh] md:h-[80vh]">
+        <Card className="flex w-full max-w-md py-10 shadow-md md:max-w-2xl bg-rose-100 rounded-xl">
           <div className="items-center justify-center flex-1 hidden md:flex">
             <div className="flex flex-col items-center justify-between gap-5 sm:flex-col-reverse">
               <div className="flex flex-col items-center justify-between gap-5 ">
