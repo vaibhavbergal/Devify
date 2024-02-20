@@ -42,15 +42,15 @@ function Cart({ setProgress }) {
 
   const totalAmount = (price - discount).toFixed(2);
 
-  // const onQuantityChange = (e, itemId) => {
-  //   const newQuantity = parseInt(e.target.value, 10);
+  const onQuantityChange = (e, itemId) => {
+    const newQuantity = parseInt(e.target.value, 10);
 
-  //   if (!isNaN(newQuantity) && newQuantity >= 0) {
-  //     setQuantities({ ...quantities, [itemId]: newQuantity });
-  //   } else {
-  //     setQuantities({ ...quantities, [itemId]: 1 });
-  //   }
-  // };
+    if (!isNaN(newQuantity) && newQuantity >= 0) {
+      setQuantities({ ...quantities, [itemId]: newQuantity });
+    } else {
+      setQuantities({ ...quantities, [itemId]: 1 });
+    }
+  };
 
   return !loading ? (
     cart.length > 0 ? (
