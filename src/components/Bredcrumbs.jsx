@@ -13,7 +13,7 @@ const Bredcrumbs = () => {
         {path.map((path, index) => {
           const name = decodeURIComponent(path);
           bredPath += `/${name}`;
-          const isLast = index === name.length - 1;
+          const isLast = index === path.length - 1;
 
           return isLast ? (
             <span key={name}> / {name}</span>
