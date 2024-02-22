@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Header, Footer, Bredcrumbs } from "./components/index";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-
 import LoadingBar from "react-top-loading-bar";
 import Product from "./pages/Product";
 import Category from "./pages/Category";
@@ -26,6 +24,7 @@ function App() {
             onLoaderFinished={() => setProgress(0)}
           />
           <Header />
+          <Bredcrumbs />
           <Routes>
             <Route path="/" element={<Home setProgress={setProgress} />} />
             <Route

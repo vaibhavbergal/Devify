@@ -1,5 +1,5 @@
 import React from "react";
-import Brands from "../Brands";
+import { Brands } from "../index.js";
 
 const Footer = () => {
   const quickShop = ["Men", "Women", "Kids", "Electronics"];

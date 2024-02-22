@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchByCategory } from "../store/slices/filterSlice";
 import { STATUSES } from "../store/status";
 import { ThreeDots } from "react-loader-spinner";
-import ProductCard from "../components/ProductCard";
+import { ProductCard } from "../components/index";
 
 const Category = ({ setProgress }) => {
   const { category } = useParams();

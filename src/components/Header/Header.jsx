@@ -6,7 +6,7 @@ import { fetchByCategory } from "@/store/slices/filterSlice";
 import { Button } from "../ui/button";
 import { FiX } from "react-icons/fi";
 import { HiMenuAlt1 } from "react-icons/hi";
-import LogoutBtn from "../LogoutBtn";
+import { LogoutBtn } from "@/components/index";
 import { RiAccountCircleFill } from "react-icons/ri";
 
 function Header() {

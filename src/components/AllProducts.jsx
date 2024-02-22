@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "@/store/slices/productSlice";
 import STATUSES from "@/store/status";
-import ProductCard from "./ProductCard";
+import { ProductCard } from "./index";
 import { ThreeDots } from "react-loader-spinner";
 
 function AllProducts({ setProgress }) {

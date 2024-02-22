@@ -1,6 +1,5 @@
 import React from "react";
-import AllProducts from "../components/AllProducts";
-import Hero from "../components/Hero";
+import { AllProducts, Hero } from "../components/index";
 
 function Home({ setProgress }) {
   return (
